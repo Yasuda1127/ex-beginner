@@ -18,7 +18,12 @@ public class Exam02Controller {
         int total = first + second;
         model.addAttribute("first", first);
         model.addAttribute("second", second);
-        model.addAttribute("total", total); // 結果を追加
+        model.addAttribute("total", total);
         return "exam02-result.html";
+    }
+
+    @RequestMapping("/exam02-result2")
+    public String result2(){
+        return "forward:/exam02-result";
     }
 }

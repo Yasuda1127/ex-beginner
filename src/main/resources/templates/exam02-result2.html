@@ -6,16 +6,10 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/ex-beginner/exam02-result2">
       <h3>足し算結果画面</h3>
       <p>
         <span th:text="${first}"></span> + <span th:text="${second}"></span> =
         <span th:text="${total}"></span>
       </p>
-      <a
-        th:href="@{/exam02-result2(first=${first}, second=${second}, total=${total})}"
-        >次へ</a
-      >
-    </form>
   </body>
 </html>
