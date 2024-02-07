@@ -14,10 +14,13 @@
     >
       <span th:errors="*{name}" style="color: red;"></span><br>
       名前：<input type="text" th:field="*{name}" /><br />
+
       <span th:errors="*{age}" style="color: red;"></span><br>
       年齢：<input type="text" th:field="*{age}" /><br />
+
       <span th:errors="*{comment}" style="color: red;"></span><br>
       コメント:<br /><textarea th:field="*{comment}"></textarea><br />
+      
       <input type="submit" value="登録" />
     </form>
   </body>
