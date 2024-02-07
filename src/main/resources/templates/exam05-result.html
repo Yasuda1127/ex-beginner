@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>検索結果表示</title>
+  </head>
+  <body>
+    <h3>検索結果</h3>
+    <!-- データが空でない場合のみ反復処理を行う -->
+    <p
+      th:each="member : ${searchResults}"
+      th:if="${not #lists.isEmpty(searchResults)}"
+    >
+      <span th:text="${member.name}"></span>
+    </p>
+    <!-- データが空の場合に表示-->
+    <p th:if="${#lists.isEmpty(searchResults)}">
+      <span>検索結果なし</span>
+    </p>
+  </body>
+</html>

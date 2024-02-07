@@ -24,13 +24,13 @@ public class Exam04Controller {
     @PostMapping("/exam04-result")
     public String result(@Valid @ModelAttribute UserForm userForm, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "exam04"; // エラーがある場合は入力画面に戻る
+            return "exam04"; 
         }
         User user = new User();
         user.setName(userForm.getName());
         user.setAge(userForm.getAge());
         user.setComment(userForm.getComment());
-
+        
         model.addAttribute("user", user);
         return "exam04-result";
     }
