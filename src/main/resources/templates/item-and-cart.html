@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>商品一覧&ショッピングカート一覧</title>
+  </head>
+  <body>
+    <h2>商品一覧</h2>
+    <table>
+      <!-- 商品一覧の表示 -->
+      <tr th:each="item, index : ${itemList}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price} + '円'"></td>
+        <td>
+          <!-- カートに追加ボタン -->
+          <form th:action="@{/shopping-cart/inCart}" method="post">
+            <input type="hidden" name="index" th:value="${index.index}" />
+            <button type="submit">カートへ</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+
+    <br />
+
+    <h2>ショッピングカート</h2>
+    <table>
+      <!-- ショッピングカートの表示 -->
+      <tr th:each="cartItem, index : ${cart}">
+        <td th:text="${cartItem.name}"></td>
+        <td th:text="${cartItem.price} + '円'"></td>
+        <td>
+          <!-- カートから削除ボタン -->
+          <form th:action="@{/shopping-cart/delete}" method="get">
+            <input type="hidden" name="index" th:value="${index.index}" />
+            <button type="submit">削除</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+
+    <br />
+
+    <!-- 合計金額の表示 -->
+    <h3>合計金額: <span th:text="${totalAmount}"></span>円</h3>
+  </body>
+</html>
